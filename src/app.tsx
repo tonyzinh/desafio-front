@@ -13,7 +13,7 @@ export function App() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [openModal, setOpenModal] = useState<string | null>(null);
 
-  const [showVehicles, setShowVehicles] = useState(false);
+  const [showVehicles, setShowVehicles] = useState(true);
   const [showDrivers, setShowDrivers] = useState(false);
   const [showTravels, setShowTravels] = useState(false);
 
@@ -21,7 +21,6 @@ export function App() {
   const [driversData, setDriversData] = useState([]);
   const [travelsData, setTravelsData] = useState([]);
 
-  // Estado para modal de edição
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [entityType, setEntityType] = useState('');
@@ -92,7 +91,6 @@ export function App() {
       method: 'DELETE'
     });
 
-    // Atualiza a tabela após exclusão
     if (type === 'vehicles') {
       handleFetchVehicles();
     } else if (type === 'drivers') {
@@ -118,27 +116,40 @@ export function App() {
     }
   };
 
+  useEffect(() => {
+    handleFetchVehicles();
+  }, []);
+
   return (
     <div className="bg-zinc-950 h-screen flex flex-col items-center justify-center gap-8">
-      {/* Logo */}
       <div>
         <img className="fixed w-[55px] h-[55px] top-8 left-14 object-cover" src={logo} alt="Motora.ai" />
       </div>
+      <div className="fixed top-10 left-18 flex flex-col gap-4 text-center justify-center items-center">
+      <p className="text-zinc-400 text-sm">
+        Selecione uma das opções abaixo para visualizar os dados correspondentes
+        <br />(O banco de dados deve está ativo para visualizar os dados):
+      </p>
 
-      {/* Botões principais */}
-      <div className="fixed top-10 left-18 flex items-center gap-8 object-cover">
-        <div className="inline-flex items-center gap-2 px-3 py-2 relative bg-zinc-550 rounded-[58px] overflow-hidden border border-dashed border-zinc-800 hover:bg-zinc-900">
-          <button onClick={showVehiclesTable} className="relative w-fit font-normal text-zinc-300 text-sm">Veículos</button>
-        </div>
-        <div className="inline-flex items-center gap-2 px-3 py-2 relative bg-zinc-550 rounded-[58px] overflow-hidden border border-dashed border-zinc-800 hover:bg-zinc-900">
-          <button onClick={showDriversTable} className="relative w-fit font-normal text-zinc-300 text-sm">Motoristas</button>
-        </div>
-        <div className="inline-flex items-center gap-2 px-3 py-2 relative bg-zinc-550 rounded-[58px] overflow-hidden border border-dashed border-zinc-800 hover:bg-zinc-900">
-          <button onClick={showTravelsTable} className="relative w-fit font-normal text-zinc-300 text-sm">Viagens</button>
-        </div>
+        <div className="flex items-center gap-8 object-cover">
+          <div className="inline-flex items-center gap-2 px-3 py-2 relative bg-zinc-550 rounded-[58px] overflow-hidden border border-dashed border-zinc-800 hover:bg-zinc-900">
+            <button onClick={showVehiclesTable} className="relative w-fit font-normal text-zinc-300 text-sm">
+              Veículos
+            </button>
+          </div>
+          <div className="inline-flex items-center gap-2 px-3 py-2 relative bg-zinc-550 rounded-[58px] overflow-hidden border border-dashed border-zinc-800 hover:bg-zinc-900">
+            <button onClick={showDriversTable} className="relative w-fit font-normal text-zinc-300 text-sm">
+              Motoristas
+            </button>
+          </div>
+          <div className="inline-flex items-center gap-2 px-3 py-2 relative bg-zinc-550 rounded-[58px] overflow-hidden border border-dashed border-zinc-800 hover:bg-zinc-900">
+            <button onClick={showTravelsTable} className="relative w-fit font-normal text-zinc-300 text-sm">
+              Viagens
+            </button>
+          </div>
       </div>
+    </div>
 
-      {/* Dropdown Button */}
       <div className="fixed top-10 right-20 flex items-center gap-8 object-cover">
         <div className="relative">
           <button
@@ -174,8 +185,7 @@ export function App() {
         </div>
       </div>
 
-      {/* Tabelas */}
-      <div className="w-3/4 bg-white p-4 rounded-md overflow-auto max-h-[60%]">
+      <div className="w-3/4 border-solid border-2 border-zinc-800 p-4 rounded-md overflow-auto max-h-[60%]">
         {showVehicles && (
           <VehiclesTable
             data={vehiclesData}
@@ -201,12 +211,10 @@ export function App() {
         )}
       </div>
 
-      {/* Modals de criação */}
       <Veiculos isOpen={openModal === 'veiculos'} onClose={closeModal} />
       <Motorista isOpen={openModal === 'motorista'} onClose={closeModal} />
       <Viagem isOpen={openModal === 'viagem'} onClose={closeModal} />
 
-      {/* Modal de edição */}
       <EditModal
         isOpen={editModalOpen}
         onClose={() => setEditModalOpen(false)}
