@@ -5,9 +5,9 @@ import { Veiculos } from './components/veiculos';
 import { Motorista } from './components/motorista';
 import { Viagem } from './components/viagem';
 import { EditModal } from './components/EditModal';
-import { VehiclesTable } from './components/tabels/VehiclesTable';
-import { DriversTable } from './components/tabels/DriversTable';
-import { TravelsTable } from './components/tabels/TravelsTable';
+import { VehiclesTable } from './components/tabelas/veiculosTabela';
+import { DriversTable } from './components/tabelas/motoristaTabela';
+import { TravelsTable } from './components/tabelas/viagemTabela';
 
 export function App() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
