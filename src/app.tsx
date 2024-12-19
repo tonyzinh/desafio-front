@@ -4,7 +4,7 @@ import logo from './assets/logo.png';
 import { Veiculos } from './components/veiculos';
 import { Motorista } from './components/motorista';
 import { Viagem } from './components/viagem';
-import { EditModal } from './components/EditModal';
+import { EditModal } from './components/editModal';
 import { VehiclesTable } from './components/tabelas/veiculosTabela';
 import { DriversTable } from './components/tabelas/motoristaTabela';
 import { TravelsTable } from './components/tabelas/viagemTabela';
