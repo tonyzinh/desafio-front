@@ -1,6 +1,8 @@
 
 # Desafio Frontend: Cadastro e Monitoramento de Veículos em Rota
 
+<img src="./assets/Cover.jpg" alt="Exemplo imagem">
+
 Este repositório contém a implementação de um desafio técnico voltado para o desenvolvimento de uma aplicação frontend de cadastro e monitoramento de veículos, motoristas e viagens.
 
 ## Objetivo do Desafio
@@ -70,7 +72,21 @@ A escolha das tecnologias para este projeto foi realizada de forma a maximizar a
 - **Edição:** Possibilidade de alterar informações existentes com validação de dados.
 - **Exclusão:** Função de remoção com confirmação para evitar exclusões acidentais.
 - **Atualização em Tempo Real:** Dados atualizados automaticamente utilizando WebSocket.
-- 
 ---
 
-Para quaisquer dúvidas ou sugestões, fique à vontade. Obrigado por conferir o projeto!
+## 🤝 Developers
+
+We thank the following people who contributed to this project:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="#" title="Entony Jovino">
+        <img src="https://avatars.githubusercontent.com/u/181393325?v=4" width="100px;" alt="Foto do Entony Jovino no GitHub"/><br>
+        <sub>
+          <b>Entony Jovino</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
