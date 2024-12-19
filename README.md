@@ -1,7 +1,9 @@
 
 # Desafio Frontend: Cadastro e Monitoramento de Veículos em Rota
 
-<img src="./assets/Cover.jpg" alt="Exemplo imagem">
+<img src="./public/Thumbnail.png" alt="Exemplo imagem">
+
+Estilo visual feita no Figma, caso queira se inspirar, acesse o meu [Projeto no Figma](https://www.figma.com/design/ZkPu3609vxUAH92mJZZm0r/Desafio-Front-End---Motora-AI-(Copy)-(Copy)?node-id=82-2&t=0VGMHdReb4iPBti5-1).
 
 Este repositório contém a implementação de um desafio técnico voltado para o desenvolvimento de uma aplicação frontend de cadastro e monitoramento de veículos, motoristas e viagens.
 
